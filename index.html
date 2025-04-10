@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PINAY FLEX PH</title> <!-- Updated title of the page -->
+  <title>PINAY FLEX PH</title>
+
+  <!-- Required by Telegram Mini App -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -17,14 +21,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px; /* Added padding for mobile view */
+      padding: 20px;
     }
     .modal {
       background: rgba(255, 255, 255, 0.9);
       border-radius: 16px;
       padding: 24px;
       width: 100%;
-      max-width: 350px; /* Adjusted width for better responsiveness */
+      max-width: 350px;
       text-align: center;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
@@ -67,10 +71,9 @@
       width: 100%;
     }
 
-    /* Mobile-friendly adjustments */
     @media (max-width: 600px) {
       .modal {
-        padding: 16px; /* Smaller padding for small screens */
+        padding: 16px;
       }
       .modal img {
         width: 70px;
@@ -83,7 +86,7 @@
         font-size: 12px;
       }
       .share-button {
-        padding: 12px 20px; /* Larger button for better touch interaction */
+        padding: 12px 20px;
       }
     }
   </style>
@@ -91,13 +94,14 @@
 <body>
   <div class="modal">
     <img src="sssw.jpg" alt="User" />
-    <h2>PINAY FLEX PH<br/></h2> <!-- Updated heading to PINAY FLEX PH -->
+    <h2 id="userGreeting">PINAY FLEX PH</h2>
     <p>You must share in 3 groups to be approved</p>
     <div class="progress-container">
       <div class="progress-bar" id="progressBar"></div>
     </div>
     <button class="share-button" onclick="incrementShare(); shareLink()">SHARE <span id="shareCount">0</span>/3</button>
   </div>  
+
   <script>
     let shareCount = 0;
 
@@ -109,23 +113,29 @@
       }
 
       if (shareCount === 3) {
-        // Kapag tatlo na ang shares, magpop-up ng join link o magbubukas ng link
         setTimeout(function() {
-          // Halimbawa, alert lang
           alert("Congrats! You are approved. Join here: https://t.me/PINAYFLIX_XXX");
-
-          // O kung gusto mong magbukas ng link sa bagong tab/window
           window.open("https://t.me/PINAYFLIX_XXX", "_blank");
-        }, 500);  // 500ms delay bago magpop-up
+        }, 500);
       }
     }
 
-    // Function para magbukas ng share link
     function shareLink() {
-      // Telegram share URL
-      const shareUrl = "https://t.me/share/url?url=𝘼𝙏𝘼𝘽𝙎+𝙋𝙄𝙉𝘼𝙔+https://t.me/%2B1SlIIKqcwe42Mzdl"; // Palitan ng link mo
-      window.open(shareUrl, "_blank");  // Bubukas ng bagong tab na may share link
+      const shareUrl = "https://t.me/share/url?url=𝘼𝙏𝘼𝘽𝙎+𝙋𝙄𝙉𝘼𝙔+https://t.me/%2B1SlIIKqcwe42Mzdl";
+      window.open(shareUrl, "_blank");
     }
+
+    // Optional: Show user info from Telegram Mini App
+    window.onload = function() {
+      if (window.Telegram.WebApp) {
+        Telegram.WebApp.ready();
+        const user = Telegram.WebApp.initDataUnsafe.user;
+        if (user) {
+          const name = user.first_name + (user.last_name ? " " + user.last_name : "");
+          document.getElementById('userGreeting').innerHTML = `Hi ${name}, welcome to PINAY FLEX PH!`;
+        }
+      }
+    };
   </script>
 </body>
 </html>
