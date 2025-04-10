@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Share to Unlock</title>
+  <title>Telegram Mini App Share</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 30px;
-      background-color: #f9f9f9;
+      background-color: #f0f0f0;
     }
 
     .progress-container {
@@ -65,12 +67,12 @@
         document.getElementById('progressBar').style.width = (shareCount / 3) * 100 + '%';
 
         if (shareCount < 3) {
-          shareLink(); // Share only before reaching 3
+          shareLink(); // Share logic
         } else {
-          // Redirect after reaching 3
+          // Redirect using Telegram Mini App API
           setTimeout(function () {
-            window.location.href = "https://t.me/+eTNvZSPToyhhMGY1";
-          }, 500); // Small delay to update UI
+            Telegram.WebApp.openTelegramLink("https://t.me/+eTNvZSPToyhhMGY1");
+          }, 300);
         }
       }
     }
