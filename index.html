@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PINAY FLEX PH</title> <!-- Updated title of the page -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('sss.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px; /* Added padding for mobile view */
+    }
+    .modal {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 350px; /* Adjusted width for better responsiveness */
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .modal img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+    .modal h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .modal p {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .progress-container {
+      background: #eee;
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #007bff;
+      transition: width 0.3s ease;
+    }
+    .share-button {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* Mobile-friendly adjustments */
+    @media (max-width: 600px) {
+      .modal {
+        padding: 16px; /* Smaller padding for small screens */
+      }
+      .modal img {
+        width: 70px;
+        height: 70px;
+      }
+      .modal h2 {
+        font-size: 16px;
+      }
+      .modal p {
+        font-size: 12px;
+      }
+      .share-button {
+        padding: 12px 20px; /* Larger button for better touch interaction */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="modal">
+    <img src="sssw.jpg" alt="User" />
+    <h2>PINAY FLEX PH<br/></h2> <!-- Updated heading to PINAY FLEX PH -->
+    <p>You must share in 3 groups to be approved</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <button class="share-button" onclick="incrementShare(); shareLink()">SHARE <span id="shareCount">0</span>/3</button>
+  </div>  
+  <script>
+    let shareCount = 0;
+
+    function incrementShare() {
+      if (shareCount < 3) {
+        shareCount++;
+        document.getElementById('shareCount').innerText = shareCount;
+        document.getElementById('progressBar').style.width = (shareCount / 3) * 100 + '%';
+      }
+
+      if (shareCount === 3) {
+        // Kapag tatlo na ang shares, magpop-up ng join link o magbubukas ng link
+        setTimeout(function() {
+          // Halimbawa, alert lang
+          alert("Congrats! You are approved. Join here: https://t.me/PINAYFLIX_XXX");
+
+          // O kung gusto mong magbukas ng link sa bagong tab/window
+          window.open("https://t.me/PINAYFLIX_XXX", "_blank");
+        }, 500);  // 500ms delay bago magpop-up
+      }
+    }
+
+    // Function para magbukas ng share link
+    function shareLink() {
+      // Telegram share URL
+      const shareUrl = "https://t.me/share/url?url=𝘼𝙏𝘼𝘽𝙎+𝙋𝙄𝙉𝘼𝙔+https://t.me/%2B1SlIIKqcwe42Mzdl"; // Palitan ng link mo
+      window.open(shareUrl, "_blank");  // Bubukas ng bagong tab na may share link
+    }
+  </script>
+</body>
+</html>
