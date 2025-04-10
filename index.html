@@ -1,86 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Share to Unlock</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PINAY FLEX PH</title>
+
+  <!-- Open Graph meta tags for Telegram preview -->
+  <meta property="og:title" content="VerifiedWalker">
+  <meta property="og:description" content="Exclusive content inside. Launch the app now.">
+  <meta property="og:image" content="https://i.ibb.co/Qq47T6j/IMG-5347.jpg">
+  <!-- Removed og:url -->
+
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-      background-color: #f9f9f9;
+      background: url('https://i.postimg.cc/4y2D7pRG/IMG-5346.png') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
-
-    .progress-container {
+    .modal {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 24px;
       width: 100%;
-      background-color: #ddd;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 20px 0;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
-
+    .modal img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+    .modal h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .modal p {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .progress-container {
+      background: #eee;
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
     .progress-bar {
-      height: 30px;
+      height: 100%;
       width: 0%;
-      background-color: #4caf50;
-      line-height: 30px;
-      color: white;
+      background: #007bff;
       transition: width 0.3s ease;
     }
-
-    button {
-      padding: 15px 25px;
-      font-size: 18px;
-      background-color: #0088cc;
+    .share-button {
+      background: #007bff;
       color: white;
+      padding: 10px 20px;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
-      margin-top: 20px;
+      width: 100%;
     }
 
-    button:hover {
-      background-color: #0077b6;
+    @media (max-width: 600px) {
+      .modal {
+        padding: 16px;
+      }
+      .modal img {
+        width: 70px;
+        height: 70px;
+      }
+      .modal h2 {
+        font-size: 16px;
+      }
+      .modal p {
+        font-size: 12px;
+      }
+      .share-button {
+        padding: 12px 20px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <h2>Share 3 times to unlock the content</h2>
-  <p>Shares: <span id="shareCount">0</span>/3</p>
-
-  <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-
-  <button onclick="incrementShare()">Share Now</button>
+  <div class="modal">
+    <img src="https://i.ibb.co/Qq47T6j/IMG-5347.jpg" alt="User" />
+    <h2>PINAY FLEX PH<br/></h2>
+    <p>You must share in 3 groups to be approved</p>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <button class="share-button" onclick="handleShare()">SHARE <span id="shareCount">0</span>/3</button>
+  </div>  
 
   <script>
     let shareCount = 0;
 
-    function incrementShare() {
+    function handleShare() {
       if (shareCount < 3) {
         shareCount++;
         document.getElementById('shareCount').innerText = shareCount;
         document.getElementById('progressBar').style.width = (shareCount / 3) * 100 + '%';
+        
+        const shareUrl = "https://t.me/share/url?url=https://t.me/PINAYFLEXPHboT?startapp=WatchNow";
+        window.open(shareUrl, "_blank");
 
-        if (shareCount < 3) {
-          shareLink();
-        } else {
-          setTimeout(function () {
-            Telegram.WebApp.openTelegramLink("https://t.me/+eTNvZSPToyhhMGY1");
+        if (shareCount === 3) {
+          setTimeout(() => {
+            window.location.href = "https://t.me/+eTNvZSPToyhhMGY1";
           }, 500);
         }
       }
     }
-
-    function shareLink() {
-      const shareUrl = "https://t.me/share/url?url=https://t.me/PINAYFLEXPHboT?startapp=WatchNow";
-      window.open(shareUrl, "_blank");
-    }
   </script>
-
 </body>
 </html>
