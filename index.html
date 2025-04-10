@@ -66,9 +66,9 @@
     .share-button {
       background: #007bff;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 999px; /* Makes it oblong */
+      border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
       width: 100%;
@@ -117,7 +117,7 @@
 
       if (shareCount === 3) {
         setTimeout(function() {
-          window.open("https://t.me/+eTNvZSPToyhhMGY1", "_blank");
+          window.location.href = "https://t.me/+eTNvZSPToyhhMGY1";
         }, 500);
       }
     }
