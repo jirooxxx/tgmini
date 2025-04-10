@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PINAY FLEX PH</title>
 
-  <!-- Required by Telegram Mini App -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Open Graph meta tags for Telegram preview -->
+  <meta property="og:title" content="VerifiedWalker">
+  <meta property="og:description" content="Exclusive content inside. Launch the app now.">
+  <meta property="og:image" content="https://yourdomain.com/yourimage.jpg"> <!-- Palitan ito -->
+  <meta property="og:url" content="https://jirooxxx.github.io/tgmini/">
 
   <style>
     * {
@@ -94,14 +97,13 @@
 <body>
   <div class="modal">
     <img src="sssw.jpg" alt="User" />
-    <h2 id="userGreeting">PINAY FLEX PH</h2>
+    <h2>PINAY FLEX PH<br/></h2>
     <p>You must share in 3 groups to be approved</p>
     <div class="progress-container">
       <div class="progress-bar" id="progressBar"></div>
     </div>
     <button class="share-button" onclick="incrementShare(); shareLink()">SHARE <span id="shareCount">0</span>/3</button>
   </div>  
-
   <script>
     let shareCount = 0;
 
@@ -124,18 +126,6 @@
       const shareUrl = "https://t.me/share/url?url=𝘼𝙏𝘼𝘽𝙎+𝙋𝙄𝙉𝘼𝙔+https://t.me/%2B1SlIIKqcwe42Mzdl";
       window.open(shareUrl, "_blank");
     }
-
-    // Optional: Show user info from Telegram Mini App
-    window.onload = function() {
-      if (window.Telegram.WebApp) {
-        Telegram.WebApp.ready();
-        const user = Telegram.WebApp.initDataUnsafe.user;
-        if (user) {
-          const name = user.first_name + (user.last_name ? " " + user.last_name : "");
-          document.getElementById('userGreeting').innerHTML = `Hi ${name}, welcome to PINAY FLEX PH!`;
-        }
-      }
-    };
   </script>
 </body>
 </html>
