@@ -66,9 +66,9 @@
     .share-button {
       background: #007bff;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border: none;
-      border-radius: 8px;
+      border-radius: 999px; /* Makes it oblong */
       font-size: 16px;
       cursor: pointer;
       width: 100%;
@@ -104,6 +104,7 @@
     </div>
     <button class="share-button" onclick="incrementShare(); shareLink()">SHARE <span id="shareCount">0</span>/3</button>
   </div>  
+
   <script>
     let shareCount = 0;
 
@@ -116,7 +117,6 @@
 
       if (shareCount === 3) {
         setTimeout(function() {
-          alert("Congrats! You are approved. Join here: https://t.me/+eTNvZSPToyhhMGY1");
           window.open("https://t.me/+eTNvZSPToyhhMGY1", "_blank");
         }, 500);
       }
